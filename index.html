@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Cursos Gratis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+            <li><a href="#" onclick="mostrarSeccion('cursos')">Cursos</a></li>
+            <li><a href="#" onclick="mostrarSeccion('inscripcion')">Inscripción</a></li>
+        </ul>
+    </nav>
+
+    <?php
+    if (isset($_GET['mensaje'])) {
+        echo "<p style='color: green; text-align: center;'>" . htmlspecialchars($_GET['mensaje']) . "</p>";
+    }
+    ?>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+            <li><a href="#" onclick="mostrarSeccion('cursos')">Cursos</a></li>
+            <li><a href="#" onclick="mostrarSeccion('inscripcion')">Inscripción</a></li>
+        </ul>
+    </nav>
+
+    <section id="inicio" class="seccion">
+        <div class="header">
+            <h1>Bienvenido a la Plataforma de Cursos Gratis</h1>
+        </div>
+        <div class="container">
+            <div class="description">
+                <h2>Sobre Nosotros</h2>
+                <p>Ofrecemos cursos gratuitos de programación para todas las edades. Aprende a programar desde cero con nuestros cursos interactivos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="cursos" class="seccion oculto">
+        <h2>Cursos de Programación Destacados</h2>
+        <div class="courses">
+            <div class="course" data-curso="html"><h3>Curso de HTML y CSS</h3></div>
+            <div class="course" data-curso="javascript"><h3>Curso de JavaScript</h3></div>
+            <div class="course" data-curso="python"><h3>Curso de Python</h3></div>
+        </div>
+
+        <h2>Todos los Cursos</h2>
+        <div class="courses">
+            <div class="course" data-curso="react"><h3>Curso de React</h3></div>
+            <div class="course" data-curso="node"><h3>Curso de Node.js</h3></div>
+            <div class="course" data-curso="sql"><h3>Curso de SQL</h3></div>
+            <div class="course" data-curso="java"><h3>Curso de Java</h3></div>
+            <div class="course" data-curso="csharp"><h3>Curso de C#</h3></div>
+            <div class="course" data-curso="php"><h3>Curso de PHP</h3></div>
+            <div class="course" data-curso="ruby"><h3>Curso de Ruby</h3></div>
+            <div class="course" data-curso="go"><h3>Curso de Go</h3></div>
+            <div class="course" data-curso="typescript"><h3>Curso de TypeScript</h3></div>
+            <div class="course" data-curso="swift"><h3>Curso de Swift</h3></div>
+        </div>
+
+        <div id="actividades" class="oculto">
+            <h2>Actividades del Curso</h2>
+            <p id="curso-seleccionado"></p>
+            <ul id="lista-actividades"></ul>
+        </div>
+        
+    </section>
+
+    <section id="inscripcion" class="seccion oculto">
+        <h2>Inscríbete en un Curso</h2>
+        <div class="form-box">
+            <form class="form" action="inscripcion.php" method="post">
+                <span class="title">Registro</span>
+                <span class="subtitle">Inscríbete gratis a nuestros cursos</span>
+                
+                <div class="form-container">
+                    <input type="text" id="nombre" name="nombre" class="input" placeholder="Nombre" required>
+                    <input type="email" id="email" name="email" class="input" placeholder="Correo Electrónico" required>
+                    <select id="curso" name="curso" class="input" required>
+                        <option value="HTML y CSS">HTML y CSS</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Python">Python</option>
+                        <option value="React">React</option>
+                        <option value="Node.js">Node.js</option>
+                        <option value="SQL">SQL</option>
+                        <option value="Java">Java</option>
+                        <option value="C#">C#</option>
+                        <option value="PHP">PHP</option>
+                        <option value="Ruby">Ruby</option>
+                        <option value="Go">Go</option>
+                        <option value="TypeScript">TypeScript</option>
+                        <option value="Swift">Swift</option>
+                    </select>
+                </div>
+    
+                <button type="submit">Inscribirse</button>
+            </form>
+            <div class="form-section">
+                <p>¿Ya tienes cuenta? <a href="#">Inicia sesión aquí</a></p>
+            </div>
+        </div>
+    </section>
+    <div class="footer">
+        <p>&copy; 2025 Plataforma de Cursos Gratis</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
