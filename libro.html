@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Libro de Amor</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: Georgia, serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      width: 400px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      padding: 25px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    h1 {
+      color: #e60073;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .texto {
+      font-size: 18px;
+      margin: 20px 0;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    .botones button {
+      background: #e60073;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .botones button:hover {
+      background: #c4005f;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Corazones animados */
+    .corazon {
+      position: absolute;
+      font-size: 20px;
+      color: #ff5c8a;
+      animation: subir 5s linear infinite;
+    }
+    @keyframes subir {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 id="titulo">💖 Portada 💖</h1>
+  <p class="texto" id="texto">Bienvenido a nuestro libro de amor. Presiona siguiente para comenzar. 💕</p>
+
+  <div class="botones">
+    <button onclick="anterior()">⬅ Anterior</button>
+    <button onclick="siguiente()">Siguiente ➡</button>
+  </div>
+</div>
+
+<script>
+  const paginas = [
+    {titulo: "Capítulo 1", texto: "Desde que llegaste a mi vida, descubrí lo hermoso que es compartir cada instante contigo. Tu presencia llena mis días de alegría y mi corazón de paz."},
+    {titulo: "Capítulo 2", texto: "Eres esa persona que me inspira a ser mejor cada día, que me motiva a soñar y que me acompaña en cada paso de este camino llamado amor."},
+    {titulo: "Capítulo 3", texto: "No hay palabras suficientes para describir lo agradecido que estoy por tu amor, tu paciencia y tu forma de hacerme sentir especial."},
+    {titulo: "Capítulo 4", texto: "Quiero que sepas que mi amor por ti crece cada día, y que mi mayor deseo es construir juntos un futuro lleno de momentos inolvidables."},
+    {titulo: "Capítulo 5", texto: "Tu sonrisa es mi refugio y tu mirada mi guía. Contigo he encontrado un hogar en tu corazón."},
+    {titulo: "Capítulo 6", texto: "Amarte me ha enseñado el verdadero significado de la felicidad y la importancia de valorar cada instante a tu lado."},
+    {titulo: "Capítulo 7", texto: "Eres mi mejor regalo, mi mayor bendición y la razón por la que creo en el amor verdadero."},
+    {titulo: "Capítulo 8", texto: "Cada día contigo es un capítulo nuevo en esta hermosa historia que escribimos juntos."},
+    {titulo: "Capítulo 9", texto: "No importa lo que pase, siempre quiero ser tu apoyo, tu alegría y tu compañero fiel."},
+    {titulo: "Capítulo 10", texto: "Gracias por enseñarme que amar es dar sin esperar, cuidar sin condiciones y sonreír sin razón."},
+    {titulo: "Capítulo 11", texto: "Tu amor me hace sentir afortunado, completo y lleno de esperanza por todo lo que vendrá."},
+    {titulo: "Capítulo 12", texto: "Si pudiera elegir mil veces, en todas volvería a encontrarte y amarte como la primera vez."},
+    {titulo: "Capítulo 13", texto: "Nuestro amor es la prueba de que los sueños más hermosos se hacen realidad cuando dos corazones laten juntos."},
+    {titulo: "Capítulo 14", texto: "Prometo cuidar de ti, respetarte y seguir amándote con la misma fuerza de hoy, mañana y siempre."},
+    {titulo: "Capítulo Final", texto: "Tú y yo somos una historia eterna, escrita con paciencia, alegría y un amor que jamás se acabará. 💕"}
+  ];
+
+  let indice = -1; // Comienza en portada
+
+  function mostrarPagina() {
+    if (indice === -1) {
+      document.getElementById("titulo").textContent = "💖 Portada 💖";
+      document.getElementById("texto").textContent = "Bienvenido a nuestro libro de amor. Presiona siguiente para comenzar. 💕";
+    } else {
+      document.getElementById("titulo").textContent = paginas[indice].titulo;
+      document.getElementById("texto").textContent = paginas[indice].texto;
+    }
+  }
+
+  function siguiente() {
+    if (indice < paginas.length - 1) {
+      indice++;
+      mostrarPagina();
+    }
+  }
+
+  function anterior() {
+    if (indice > -1) {
+      indice--;
+      mostrarPagina();
+    }
+  }
+
+  // Corazones animados
+  function crearCorazon() {
+    const corazon = document.createElement("div");
+    corazon.classList.add("corazon");
+    corazon.style.left = Math.random() * 100 + "vw";
+    corazon.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    corazon.textContent = "💗";
+    document.body.appendChild(corazon);
+    setTimeout(() => corazon.remove(), 5000);
+  }
+  setInterval(crearCorazon, 500);
+</script>
+
+</body>
+</html>
